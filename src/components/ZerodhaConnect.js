@@ -10,7 +10,7 @@ function ZerodhaConnect() {
   };
   const params = new URLSearchParams(data);
   const url = link + params;
-  const test_url = "https://www.facebook.com";
+  const test_url = url;
   const onClickToLogin = (event) => {
     event.preventDefault();
     console.log(url);
