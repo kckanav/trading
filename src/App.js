@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 
 import React from 'react';
-import ZerodhaConnect from './ZerodhaConnect';
+import ZerodhaConnect from './components/ZerodhaConnect';
 import RouterComponent from './components/router'
+import TradingPage from './components/tradingPage';
 import './styles/App.css';
 import {useSearchParams} from "react-router-dom"
 
@@ -10,13 +11,19 @@ import {useSearchParams} from "react-router-dom"
 function App() {
   const [searchParams, setSearchParams] = useSearchParams();
   const val = searchParams.get("request_token");
-  console.log(val);
-  return (
-    <div className="container">
-      <ZerodhaConnect />
-      <RouterComponent />
-    </div>
-  );
+  if (val == null) {
+    return (
+      <div>
+        <ZerodhaConnect />
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <TradingPage />
+      </div>
+    )
+  }
 }
 
 export default App;
